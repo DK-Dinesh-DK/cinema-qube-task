@@ -8,7 +8,7 @@ function Router() {
     <BrowserRouter>
       <Routes>
         <Route index element={<Dashboard />} />
-        <Route index element={<Details />} />
+        <Route path="/collection-details" element={<Details />} />
         <Route />
       </Routes>
     </BrowserRouter>

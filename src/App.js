@@ -7,22 +7,19 @@ import {
 import { Global } from "@emotion/react";
 import "./App.css";
 
-import { ProductProvider } from "./context/ProductContext";
-import { BrowserRouter, Routes } from "react-router";
+import { MusicProvider } from "./context/MusicContext";
 import Router from "./Route";
 
 const theme = createTheme({
   typography: {
-    fontFamily: `system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"`,
+    fontFamily: `'Commissioner', sans-serif !important`,
   },
 });
 
 const globalStyles = css`
   body {
     margin: 0;
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
-      Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji",
-      "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* Same as theme fontFamily */
+    font-family: 'Commissioner', sans-serif !important; 
   }
 `;
 
@@ -31,11 +28,11 @@ function App() {
     <ThemeProvider theme={theme}>
       <StyledEngineProvider injectFirst>
         <Global styles={globalStyles} />
-        <ProductProvider>
+        <MusicProvider>
           <div className="App">
             <Router />
           </div>
-        </ProductProvider>
+        </MusicProvider>
       </StyledEngineProvider>
     </ThemeProvider>
   );

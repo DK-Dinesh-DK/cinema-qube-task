@@ -1,54 +1,77 @@
 .dashboard-container {
-    width: 100vw;
-    height: 100vh;
+  width: 100%;
+  height: 100vh;
 }
 
 .header {
-    height: 68px;
-    display: flex;
-    align-items: center;
-    padding-left: 30px;
-    font-weight: 500;
-    color: #29313A;
-    font-size: 24px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+  font-weight: 500;
+  color: #29313a;
+  font-size: 24px;
 }
 
 .table-container {
-    height: calc(100vh - 68px);
-    padding: 8px;
-    background-color: rgba(245, 248, 250, 255);
-
+  height: calc(100vh - 68px);
+  width: 100%;
+  padding: 20px;
+  background-color: rgba(245, 248, 250, 255);
 }
 
 .filter-container {
-    width: 100%;
-    height: 66px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    row-gap: 30px;
-    border-top: 1px solid #E6ECF0;
+  background-color: #fff;
+  width: 100%;
+  height: 66px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  row-gap: 30px;
+  border-top: 1px solid #e6ecf0;
+  border-left: 1px solid #e6ecf0;
+  border-right: 1px solid #e6ecf0;
+  padding: 10px;
 }
 
 .type-button {
-    background-color: #E6ECF0;
-    border: none;
-    height: 32px;
-    width: 100px;
-    border-radius: 10px;
-    margin-left: 10px;
-    font-size: 12px;
-    font-weight: 500;
+  background-color: #e6ecf0;
+  border: none;
+  height: 32px;
+  width: 100px;
+  border-radius: 10px;
+  margin-left: 10px;
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .type-selected-button {
-    border: none;
-    outline: 1px solid #084782 !important;
-    background-color: #E6ECF0;
-    height: 32px;
-    width: 100px;
-    border-radius: 10px;
-    margin-left: 10px;
-    font-size: 12px;
-    font-weight: 500;
+  border: none;
+  outline: 1px solid #084782 !important;
+  background-color: #e6ecf0;
+  height: 32px;
+  width: 100px;
+  border-radius: 10px;
+  margin-left: 10px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.table-block {
+  border-right: 1px solid #e6ecf0;
+  border-left: 1px solid #e6ecf0;
+  border-bottom: 1px solid #e6ecf0;
+}
+.custom-row {
+  height: 68px;
+  font-size: 12px;
+  border-bottom: #E1E4E9;
+}
+.ant-table-thead > tr > th {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  height: 48px !important;
+}
+
+.ant-table {
+  font-family: 'Commissioner', sans-serif !important;
 }
