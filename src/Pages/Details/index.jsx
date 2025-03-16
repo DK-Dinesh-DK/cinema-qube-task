@@ -4,13 +4,14 @@ import { useMusicList } from "../../context/MusicContext";
 import { NavigateNext } from "@mui/icons-material";
 import { Table } from "antd";
 import { normalizeTime } from "../utils";
-
-
+import { CircularProgress } from "@mui/material";
+import { useNavigate } from "react-router";
 
 function Details() {
   const { collection } = useMusicList();
   const [collectionDetails, setCollectionDetails] = useState([]);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   const columns = useMemo(
     () => [
       {
@@ -48,6 +49,7 @@ function Details() {
       const response = await res.json();
       console.log("response", response);
       setCollectionDetails(response.list[0].songs);
+      setLoading(false);
     } catch (err) {
       setLoading(false);
       console.log("ERROR", err);
@@ -60,38 +62,21 @@ function Details() {
   return (
     <div className="details-main-container">
       <div className="details-page-header">
-        <div
-          style={{
-            height: "48px",
-            fontSize: "12px",
-            fontWeight: 500,
-            display: "flex",
-            justifyContent: "flex-start",
-            alignItems: "center",
-            paddingLeft: "30px",
-          }}
-        >
-          <span>Overview</span> <NavigateNext />
+        <div className="bread-scrum-container">
+          <span
+            style={{ color: "blue", cursor: "pointer" }}
+            onClick={() => navigate("/")}
+          >
+            Overview
+          </span>{" "}
+          <NavigateNext />
           <span> {collection.collectionname}</span>
         </div>
-        <div
-          style={{
-            fontSize: "24px",
-            fontWeight: 500,
-            display: "flex",
-            alignItems: "center",
-            paddingLeft: "30px",
-            backgroundColor: "#FFF",
-            height: "68px",
-          }}
-        >
+        <div className="title-content">
           <span>
             {`${collection.type === "EP" ? "EPIC" : collection.type} :  `}
           </span>
-          <span style={{ marginLeft: "5px" }}>
-            {" "}
-            {collection.collectionname}
-          </span>
+          <span style={{ marginLeft: "5px" }}>{collection.collectionname}</span>
         </div>
       </div>
       <div className="content-container">
@@ -124,16 +109,19 @@ function Details() {
           </div>
         </div>
         <div>
-          <Table
-            dataSource={collectionDetails}
-            columns={columns}
-            pagination={false}
-            style={{ height: "100%", overflow: "auto", borderRadius: "10px" }}
-            scroll={{
-              y: "calc(100vh - 321px)",
-            }}
-            rowClassName={() => "custom-row"}
-          />
+          {!loading && (
+            <Table
+              dataSource={collectionDetails}
+              columns={columns}
+              pagination={false}
+              style={{ height: "100%", overflow: "auto", borderRadius: "10px" }}
+              scroll={{
+                y: "calc(100vh - 321px)",
+              }}
+              rowClassName={() => "custom-row"}
+            />
+          )}
+          {loading && <CircularProgress />}
         </div>
       </div>
     </div>
