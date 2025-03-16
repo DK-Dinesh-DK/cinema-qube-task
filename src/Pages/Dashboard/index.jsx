@@ -273,6 +273,7 @@ function Dashboard() {
                       <input
                         type="checkbox"
                         style={{ height: "16px", width: "16px" }}
+                        checked={type?.includes(option)}
                       />
                     </span>
                     <span style={{ fontSize: "14px" }}> {option}</span>
